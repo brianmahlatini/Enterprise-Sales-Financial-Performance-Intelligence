@@ -1,53 +1,166 @@
 # Enterprise Sales & Financial Performance Intelligence
 
-Senior-level portfolio project for executive sales, profitability, growth and target-performance analysis using Power BI concepts, DAX, Power Query, SQL/PostgreSQL, FastAPI and React.
+Executive BI and analytics platform for revenue, profitability, growth, target variance, regional performance and customer/product sales intelligence.
+
+This project turns a Power BI-style financial performance brief into a portfolio-ready analytics product with:
+
+- PostgreSQL star schema and reproducible SQL reporting layer
+- FastAPI backend exposing executive KPI, trend, breakdown and customer endpoints
+- React dashboard for revenue, profitability and regional performance exploration
+- Deterministic synthetic enterprise sales dataset
+- Power BI-ready DAX measures, Power Query steps and row-level security design
+- Docker Compose environment for one-command local execution
 
 ## Tech Stack
 
-- Business Intelligence: Power BI, DAX, Power Query, star schema modelling, row-level security.
-- Data Warehouse: PostgreSQL, SQL reporting views, indexed fact tables and dimensional modelling.
-- Backend: Python, FastAPI, Pandas and REST API analytics endpoints.
-- Frontend: React, Vite, Recharts, Lucide React and responsive CSS.
-- Data Engineering: deterministic synthetic data generation, CSV ingestion and repeatable SQL loading.
-- DevOps: Docker, Docker Compose, Nginx and containerised PostgreSQL.
-- Documentation: KPI business logic, data dictionary, Power Query plan, DAX measure catalogue and recommendations.
+| Layer | Technologies |
+|---|---|
+| Business Intelligence | Power BI, DAX, Power Query, star schema modelling, row-level security |
+| Backend API | Python, FastAPI, Pandas |
+| Frontend | React, Vite, Recharts, Lucide React, CSS |
+| Database | PostgreSQL, SQL views, indexed fact tables |
+| Analytics | Revenue analysis, gross profit, margin, YoY growth, target variance |
+| Data Engineering | Synthetic data generation, CSV ingestion, repeatable SQL loading |
+| DevOps | Docker, Docker Compose, Nginx |
+| Documentation | Markdown, KPI business logic, data dictionary, DAX and Power Query references |
 
-## Business Objective
-
-The dashboard answers the questions executives ask every month:
-
-- How much revenue and gross profit did we generate?
-- Are margins improving or being eroded by discounts and product mix?
-- Which regions, customer segments and product categories are driving growth?
-- Are we ahead of or behind revenue targets?
-- Where should leadership intervene?
-
-## Project Architecture
+## Architecture
 
 ```text
-data/                 Synthetic enterprise star-schema CSV data
-sql/                  PostgreSQL schema, reporting views and RLS policy
-backend/              FastAPI analytics API over the generated model
-frontend/             React executive dashboard
-docs/                 Power BI model, DAX, Power Query and KPI documentation
-generate_data.py      Deterministic synthetic data generator
+Power BI / React Executive Dashboard
+              |
+              v
+      FastAPI Analytics API
+              |
+              v
+ PostgreSQL Star Schema Warehouse
+              |
+              v
+ SQL, DAX, Power Query and CSV assets
 ```
+
+## Project Structure
+
+```text
+.
+|-- backend/
+|   |-- Dockerfile
+|   |-- main.py
+|   `-- requirements.txt
+|-- data/
+|   |-- dim_customer.csv
+|   |-- dim_date.csv
+|   |-- dim_product.csv
+|   |-- dim_region.csv
+|   |-- fact_sales.csv
+|   `-- fact_targets.csv
+|-- docs/
+|   |-- BUSINESS_LOGIC.md
+|   |-- DATA_DICTIONARY.md
+|   |-- DAX_MEASURES.md
+|   |-- POWER_QUERY_STEPS.md
+|   `-- RECOMMENDATIONS.md
+|-- frontend/
+|   |-- src/
+|   |   |-- App.jsx
+|   |   `-- styles.css
+|   |-- Dockerfile
+|   |-- index.html
+|   |-- nginx.conf
+|   |-- package-lock.json
+|   `-- package.json
+|-- sql/
+|   |-- 01_schema.sql
+|   |-- 02_reporting_views.sql
+|   |-- 03_rls.sql
+|   `-- 04_load_csv.sql
+|-- .dockerignore
+|-- .gitignore
+|-- docker-compose.yml
+|-- generate_data.py
+`-- README.md
+```
+
+## Business Questions Answered
+
+- How much revenue and gross profit did the business generate?
+- Which regions, segments, channels and product categories are driving performance?
+- Are margins improving, or is profitability being eroded by cost and discount pressure?
+- How is revenue trending month by month?
+- Is the business ahead of or behind revenue targets?
+- Which customers should executives drill into for growth or margin action?
+- How can regional access be secured with row-level security?
+
+## Metrics
+
+| Metric | Definition |
+|---|---|
+| Revenue | Sum of sales value after discount, calculated as `quantity * unit_price` |
+| Cost | Sum of direct product/service cost, calculated as `quantity * unit_cost` |
+| Gross Profit | Revenue minus cost |
+| Gross Margin % | Gross profit divided by revenue |
+| YoY Revenue Growth % | Current selected-period revenue compared with the same period in the prior year |
+| Target Revenue | Monthly revenue target by year, month and region |
+| Target Variance | Actual revenue minus target revenue |
+| Average Order Value | Revenue divided by distinct sales orders |
 
 ## Star Schema
 
 Facts:
 
-- `fact_sales`: order-level revenue, cost, quantity, discounts and keys.
-- `fact_targets`: monthly revenue target by region.
+- `fact_sales`: order-level revenue, cost, quantity, discount, customer, product, date and region keys.
+- `fact_targets`: monthly revenue target by year, month and region.
 
 Dimensions:
 
-- `dim_date`: marked date table for time intelligence.
-- `dim_product`: category, product, list price, cost and portfolio.
-- `dim_customer`: segment, industry, status and region.
-- `dim_region`: geography and regional manager ownership.
+- `dim_date`: calendar attributes for time intelligence.
+- `dim_product`: product, category, list price, unit cost and portfolio.
+- `dim_customer`: account, segment, industry, account status and region.
+- `dim_region`: region, country, territory and regional manager ownership.
 
-## Run the Project
+## Run With Docker
+
+Requirements:
+
+- Docker Desktop
+- Docker Compose
+
+Start the full stack:
+
+```bash
+docker compose up --build
+```
+
+Services:
+
+| Service | URL |
+|---|---|
+| React dashboard | `http://127.0.0.1:5173` |
+| FastAPI docs | `http://127.0.0.1:8000/docs` |
+| PostgreSQL | `localhost:5432` |
+
+Database credentials for local development:
+
+```text
+Database: enterprise_sales
+User: analyst
+Password: analyst_password
+```
+
+Stop the stack:
+
+```bash
+docker compose down
+```
+
+Reset the database and reload CSV data:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
+
+## Run Locally Without Docker
 
 Generate the dataset:
 
@@ -71,119 +184,168 @@ npm install
 npm run dev
 ```
 
-Open the Vite URL shown in the terminal, usually `http://127.0.0.1:5173`.
+Open the dashboard at `http://127.0.0.1:5173`.
 
-## Run with Docker
+## API Endpoints
 
-The project includes Docker support for the full portfolio stack:
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/filters` | Available dashboard filters and date range |
+| `GET /api/kpis` | Revenue, gross profit, margin, YoY growth, target variance and order count |
+| `GET /api/trends` | Monthly revenue and gross profit trend |
+| `GET /api/breakdown?by=region` | Revenue and gross profit by region, category, segment or channel |
+| `GET /api/customers/top` | Top customers by revenue with segment, region, gross profit and margin |
 
-- PostgreSQL warehouse loaded with the generated star-schema CSVs.
-- FastAPI analytics backend.
-- React executive dashboard served through Nginx.
+Example KPI response:
 
-Build and start everything:
-
-```bash
-docker compose up --build
+```json
+{
+  "revenue": 124221129.31,
+  "grossProfit": 55889956.27,
+  "margin": 0.4499,
+  "yoyGrowth": 0.0497,
+  "targetRevenue": 111625871.93,
+  "targetVariance": 12595257.38,
+  "orders": 9500
+}
 ```
 
-Then open:
+## React Dashboard
 
-- Dashboard: `http://127.0.0.1:5173`
-- API docs: `http://127.0.0.1:8000/docs`
-- PostgreSQL: `localhost:5432`
+The dashboard includes:
 
-Default database credentials:
+- Executive KPI cards for revenue, gross profit, YoY growth and target variance.
+- Date, region and customer segment filters.
+- Monthly revenue and gross profit trend.
+- Regional revenue and profitability comparison.
+- Top customer drill-through table.
+- RLS-ready regional ownership design.
 
-```text
-Database: enterprise_sales
-User: analyst
-Password: analyst_password
-```
-
-Stop the stack:
-
-```bash
-docker compose down
-```
-
-Reset the database volume and reload CSV data from scratch:
-
-```bash
-docker compose down -v
-docker compose up --build
-```
+The frontend reads from the FastAPI backend at `http://127.0.0.1:8000/api`.
 
 ## PostgreSQL Reporting Layer
 
-Create the schema:
+Create the schema manually:
 
 ```bash
 psql -d your_database -f sql/01_schema.sql
 ```
 
-Load the CSV files from `data/` using `COPY` or your preferred ingestion process, then create reporting views:
+Load the CSV files from `data/` using `COPY` or use the Docker init script:
+
+```bash
+psql -d your_database -f sql/04_load_csv.sql
+```
+
+Create reporting views and RLS objects:
 
 ```bash
 psql -d your_database -f sql/02_reporting_views.sql
 psql -d your_database -f sql/03_rls.sql
 ```
 
-The reporting layer includes:
+Reporting views:
 
 - `vw_sales_enriched`
 - `vw_monthly_financial_performance`
 - `vw_customer_profitability`
 
-When using Docker, the files in `sql/` run automatically on the first database startup and `sql/04_load_csv.sql` loads the CSV files mounted from `data/`.
+When using Docker, the SQL files run automatically on first database startup and load all CSV data into PostgreSQL.
+
+## Generate Synthetic Data
+
+The dataset is deterministic, so the same command creates the same demo data each time:
+
+```bash
+python generate_data.py
+```
+
+Generated outputs:
+
+- `data/dim_date.csv`
+- `data/dim_region.csv`
+- `data/dim_product.csv`
+- `data/dim_customer.csv`
+- `data/fact_sales.csv`
+- `data/fact_targets.csv`
+
+To refresh Docker PostgreSQL after regenerating data:
+
+```bash
+docker compose down -v
+python generate_data.py
+docker compose up --build
+```
 
 ## Power BI Build Guide
 
-1. Connect to PostgreSQL views or import the CSVs from `data/`.
-2. Apply the Power Query cleaning steps in `docs/POWER_QUERY_STEPS.md`.
-3. Build relationships exactly as described in the star schema section.
-4. Add the DAX measures from `docs/DAX_MEASURES.md`.
-5. Create report pages for executive overview, sales performance, profitability, customer drill-through and RLS validation.
-6. Configure row-level security using `dim_region` ownership or the SQL access map.
-7. Capture screenshots listed in `docs/RECOMMENDATIONS.md`.
+1. Open Power BI Desktop.
+2. Select Get Data > PostgreSQL database, or import the CSV files from `data/`.
+3. Connect to `localhost:5432`.
+4. Database: `enterprise_sales`.
+5. Import the dimension and fact tables, or use the reporting views.
+6. Create relationships:
+   - `dim_date[date_key]` to `fact_sales[order_date]`
+   - `dim_product[product_id]` to `fact_sales[product_id]`
+   - `dim_customer[customer_id]` to `fact_sales[customer_id]`
+   - `dim_region[region_id]` to `fact_sales[region_id]`
+   - `dim_region[region_id]` to `fact_targets[region_id]`
+7. Mark `dim_date` as the date table.
+8. Apply the Power Query steps in `docs/POWER_QUERY_STEPS.md`.
+9. Add the DAX measures in `docs/DAX_MEASURES.md`.
+10. Configure row-level security using the regional access design in `docs/BUSINESS_LOGIC.md` and `sql/03_rls.sql`.
 
-## KPI Logic
+Suggested report pages:
 
-The project centralises KPI definitions so SQL, API, React and Power BI tell the same story:
+- Executive Overview
+- Sales Performance
+- Profitability Analysis
+- Regional Target Performance
+- Customer Drill-Through
+- RLS Validation
 
-- Revenue = `quantity * unit_price`
-- Gross Profit = `revenue - cost`
-- Gross Margin % = `gross_profit / revenue`
-- YoY Growth % = current-period revenue versus same period previous year
-- Target Variance = actual revenue less assigned target revenue
+Suggested visuals:
 
-Detailed definitions are in `docs/BUSINESS_LOGIC.md`.
+- KPI cards for revenue, gross profit, margin, YoY growth and target variance.
+- Line chart for monthly revenue and gross profit.
+- Bar charts for region, category, channel and segment performance.
+- Matrix visual for target variance by month and region.
+- Table visual for customer-level revenue, gross profit and margin.
+- Slicers for date, region, segment, category and channel.
 
-## CV Evidence
+## Portfolio Narrative
 
-This project demonstrates:
+Recommended CV wording:
 
-- Interactive executive dashboard with filters, KPIs, charts and customer drill-through table.
-- Star schema design with sales fact, target fact and conformed dimensions.
-- Documented DAX measures for revenue, gross profit, margin, YoY growth and target variance.
-- Tested SQL reporting layer with indexed facts and curated views.
-- Power Query transformation plan and data dictionary.
-- Row-level security design for regional managers.
-- Business recommendations grounded in sales and margin performance.
+Built a Dockerized Enterprise Sales & Financial Performance Intelligence platform using PostgreSQL, FastAPI, React, Python, SQL, DAX and Power BI. Developed a star-schema sales model, documented KPI logic, created SQL reporting views, implemented regional row-level security design and delivered an executive dashboard for revenue, profitability, YoY growth and target-variance analysis.
 
-## Suggested Power BI Screenshots
+Evidence to include:
 
-Place final screenshots in a `screenshots/` folder:
+- Screenshot of React executive dashboard.
+- Screenshot of Power BI executive overview.
+- Screenshot of Power BI customer drill-through page.
+- Link to FastAPI `/docs` page.
+- SQL schema and reporting views.
+- DAX measure catalogue.
+- Power Query transformation documentation.
+- Data dictionary and business recommendations.
 
-- `01_executive_overview.png`
-- `02_sales_trend.png`
-- `03_profitability.png`
-- `04_customer_drillthrough.png`
-- `05_rls_validation.png`
+## Senior-Level Design Notes
 
-## Quality Notes
+- The model uses a clean star schema with conformed dimensions and separate sales and target facts.
+- KPI logic is documented consistently across SQL, API, React and Power BI.
+- SQL reporting views provide a tested semantic layer for BI consumption.
+- Fact tables include indexes for date, region, product and customer filters.
+- Docker Compose initialises PostgreSQL automatically from versioned SQL scripts.
+- The API exposes stable analytics endpoints that can support both React and BI QA workflows.
+- The frontend is API-driven and can be deployed independently from the backend.
+- RLS is designed around regional ownership and can be implemented in both SQL and Power BI.
 
-- Data generation is deterministic for repeatable demos.
-- API calculations intentionally mirror documented DAX measures.
-- SQL indexes support common date, region, customer and product filters.
-- The React dashboard is an auxiliary executive web interface; the Power BI artifacts remain fully documented for the BI deliverable.
+## Next Enhancements
+
+- Add pytest coverage for API endpoints and KPI calculations.
+- Add dbt models for transformation lineage and data quality tests.
+- Add GitHub Actions for automated backend and frontend validation.
+- Add authentication for executive and regional manager roles.
+- Add a published `.pbix` file after Power BI visuals are finalised.
+- Add screenshots to a `screenshots/` folder for the final portfolio presentation.
