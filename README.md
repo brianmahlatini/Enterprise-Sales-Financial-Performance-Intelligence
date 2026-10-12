@@ -2,6 +2,16 @@
 
 Senior-level portfolio project for executive sales, profitability, growth and target-performance analysis using Power BI concepts, DAX, Power Query, SQL/PostgreSQL, FastAPI and React.
 
+## Tech Stack
+
+- Business Intelligence: Power BI, DAX, Power Query, star schema modelling, row-level security.
+- Data Warehouse: PostgreSQL, SQL reporting views, indexed fact tables and dimensional modelling.
+- Backend: Python, FastAPI, Pandas and REST API analytics endpoints.
+- Frontend: React, Vite, Recharts, Lucide React and responsive CSS.
+- Data Engineering: deterministic synthetic data generation, CSV ingestion and repeatable SQL loading.
+- DevOps: Docker, Docker Compose, Nginx and containerised PostgreSQL.
+- Documentation: KPI business logic, data dictionary, Power Query plan, DAX measure catalogue and recommendations.
+
 ## Business Objective
 
 The dashboard answers the questions executives ask every month:
