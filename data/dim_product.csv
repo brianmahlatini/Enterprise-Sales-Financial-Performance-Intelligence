@@ -1,0 +1,13 @@
+product_id,category,product_name,standard_unit_cost,list_price,portfolio
+1,Cloud,Analytics Platform,734,1076.7,Strategic
+2,Cloud,Storage Suite,361,580.18,Core
+3,Cloud,AI Accelerator,834,1215.66,Strategic
+4,Hardware,Edge Gateway,638,919.54,Growth
+5,Hardware,Secure Laptop,112,154.7,Core
+6,Hardware,Network Appliance,318,598.04,Core
+7,Services,Implementation,654,1019.44,Strategic
+8,Services,Premium Support,798,1533.91,Core
+9,Services,Training,539,1061.14,Core
+10,Software,CRM Pro,857,1882.07,Strategic
+11,Software,FinanceOps,512,874.12,Core
+12,Software,Security Console,300,706.52,Growth

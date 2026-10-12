@@ -1,0 +1,181 @@
+customer_id,customer_name,segment,industry,region_id,account_status
+1,Vertex 001,Enterprise,Technology,1,At Risk
+2,Summit 002,SMB,Technology,5,Strategic
+3,Northstar 003,Public Sector,Manufacturing,5,Active
+4,BluePeak 004,SMB,Retail,6,Strategic
+5,Northstar 005,Mid-Market,Technology,6,Strategic
+6,Northstar 006,Mid-Market,Finance,3,Active
+7,Vertex 007,Public Sector,Education,3,At Risk
+8,Summit 008,Mid-Market,Finance,3,Strategic
+9,Cobalt 009,SMB,Education,6,Active
+10,Cobalt 010,Mid-Market,Finance,5,Active
+11,Summit 011,Public Sector,Education,4,Strategic
+12,Summit 012,Mid-Market,Technology,6,Active
+13,Vertex 013,Enterprise,Retail,3,Active
+14,Cobalt 014,Mid-Market,Retail,5,Active
+15,Cobalt 015,Public Sector,Manufacturing,4,Active
+16,Apex 016,SMB,Education,2,Strategic
+17,BluePeak 017,SMB,Manufacturing,6,Strategic
+18,Apex 018,Public Sector,Finance,3,Strategic
+19,Northstar 019,Public Sector,Technology,1,Active
+20,Vertex 020,Mid-Market,Healthcare,6,Active
+21,BluePeak 021,Public Sector,Manufacturing,4,Strategic
+22,Northstar 022,SMB,Education,5,Strategic
+23,BluePeak 023,Enterprise,Retail,6,Strategic
+24,Summit 024,SMB,Manufacturing,1,Active
+25,Cobalt 025,Public Sector,Education,1,At Risk
+26,Northstar 026,Mid-Market,Education,5,At Risk
+27,Summit 027,Mid-Market,Finance,2,Strategic
+28,Summit 028,Enterprise,Manufacturing,5,Active
+29,Summit 029,Enterprise,Finance,3,Active
+30,Northstar 030,Mid-Market,Technology,5,Strategic
+31,BluePeak 031,Public Sector,Finance,1,Active
+32,Apex 032,Public Sector,Retail,5,Strategic
+33,BluePeak 033,Public Sector,Education,2,Strategic
+34,Summit 034,Mid-Market,Manufacturing,6,Strategic
+35,BluePeak 035,SMB,Manufacturing,4,Active
+36,Northstar 036,Mid-Market,Retail,2,Active
+37,Apex 037,Mid-Market,Technology,5,Active
+38,Northstar 038,Enterprise,Technology,2,At Risk
+39,Apex 039,Enterprise,Retail,5,Strategic
+40,BluePeak 040,Public Sector,Finance,2,Strategic
+41,Vertex 041,Public Sector,Manufacturing,2,Active
+42,Cobalt 042,Enterprise,Manufacturing,1,At Risk
+43,Vertex 043,Public Sector,Education,4,Active
+44,Vertex 044,Enterprise,Education,1,At Risk
+45,Apex 045,Enterprise,Finance,2,Strategic
+46,Vertex 046,Public Sector,Finance,2,At Risk
+47,Northstar 047,Public Sector,Manufacturing,2,Strategic
+48,Cobalt 048,Enterprise,Healthcare,1,Active
+49,Apex 049,Enterprise,Manufacturing,2,At Risk
+50,Vertex 050,Public Sector,Technology,2,Active
+51,Vertex 051,Public Sector,Retail,1,At Risk
+52,Cobalt 052,SMB,Education,4,Strategic
+53,Apex 053,Public Sector,Retail,2,Active
+54,Cobalt 054,Enterprise,Healthcare,5,Active
+55,Northstar 055,SMB,Healthcare,1,At Risk
+56,BluePeak 056,Mid-Market,Technology,1,Active
+57,Northstar 057,Enterprise,Education,5,Active
+58,BluePeak 058,Public Sector,Finance,1,Strategic
+59,Northstar 059,Enterprise,Manufacturing,5,Strategic
+60,Apex 060,SMB,Education,3,Strategic
+61,Summit 061,SMB,Manufacturing,2,Active
+62,Summit 062,SMB,Technology,4,Active
+63,BluePeak 063,Public Sector,Technology,5,Active
+64,Summit 064,Mid-Market,Finance,5,At Risk
+65,Summit 065,Enterprise,Retail,2,Active
+66,Cobalt 066,Public Sector,Retail,5,Strategic
+67,BluePeak 067,Enterprise,Retail,6,Strategic
+68,Summit 068,Enterprise,Technology,2,Active
+69,Summit 069,Mid-Market,Healthcare,3,Active
+70,Cobalt 070,SMB,Education,2,At Risk
+71,Northstar 071,Public Sector,Technology,3,Strategic
+72,Northstar 072,Public Sector,Technology,3,At Risk
+73,Summit 073,Mid-Market,Finance,6,Strategic
+74,Cobalt 074,Public Sector,Manufacturing,5,Strategic
+75,Northstar 075,Enterprise,Education,1,Active
+76,BluePeak 076,Enterprise,Healthcare,3,Active
+77,Northstar 077,Public Sector,Retail,2,At Risk
+78,Apex 078,Enterprise,Education,3,Active
+79,BluePeak 079,Enterprise,Manufacturing,3,Strategic
+80,Apex 080,Mid-Market,Finance,2,At Risk
+81,Cobalt 081,Enterprise,Retail,2,At Risk
+82,Apex 082,Mid-Market,Education,3,Active
+83,Vertex 083,Public Sector,Finance,1,Active
+84,Summit 084,Public Sector,Finance,3,Active
+85,Apex 085,Enterprise,Manufacturing,6,At Risk
+86,Summit 086,SMB,Retail,1,Strategic
+87,BluePeak 087,Public Sector,Retail,6,Active
+88,Apex 088,Enterprise,Healthcare,3,At Risk
+89,BluePeak 089,Enterprise,Manufacturing,1,At Risk
+90,BluePeak 090,SMB,Healthcare,4,Active
+91,Apex 091,Public Sector,Retail,5,Active
+92,BluePeak 092,Public Sector,Healthcare,1,Strategic
+93,Vertex 093,Mid-Market,Technology,3,Strategic
+94,Summit 094,SMB,Education,5,Active
+95,Summit 095,SMB,Education,5,At Risk
+96,Cobalt 096,SMB,Retail,4,Strategic
+97,Vertex 097,Mid-Market,Education,2,At Risk
+98,BluePeak 098,Mid-Market,Retail,5,At Risk
+99,Summit 099,Enterprise,Finance,3,At Risk
+100,Vertex 100,SMB,Manufacturing,4,Strategic
+101,Vertex 101,Mid-Market,Education,5,Active
+102,BluePeak 102,Enterprise,Education,3,Strategic
+103,Apex 103,SMB,Education,1,At Risk
+104,Apex 104,Mid-Market,Technology,2,Active
+105,BluePeak 105,Mid-Market,Technology,4,At Risk
+106,BluePeak 106,Public Sector,Finance,6,Strategic
+107,Vertex 107,Public Sector,Finance,4,Active
+108,Vertex 108,Enterprise,Finance,1,Active
+109,BluePeak 109,Public Sector,Finance,1,Active
+110,Vertex 110,Public Sector,Education,2,Strategic
+111,BluePeak 111,SMB,Education,4,Strategic
+112,Vertex 112,Public Sector,Finance,5,Strategic
+113,Summit 113,Public Sector,Finance,4,Strategic
+114,Vertex 114,SMB,Education,5,Active
+115,Northstar 115,SMB,Education,4,At Risk
+116,Summit 116,Mid-Market,Retail,3,Strategic
+117,Apex 117,Enterprise,Finance,2,At Risk
+118,Apex 118,Mid-Market,Technology,6,At Risk
+119,BluePeak 119,Public Sector,Manufacturing,3,At Risk
+120,Vertex 120,Enterprise,Manufacturing,2,Strategic
+121,Vertex 121,Enterprise,Manufacturing,5,Active
+122,Vertex 122,SMB,Manufacturing,3,Strategic
+123,Apex 123,Mid-Market,Retail,4,At Risk
+124,Vertex 124,Public Sector,Retail,1,Strategic
+125,Apex 125,Public Sector,Manufacturing,6,Active
+126,BluePeak 126,Enterprise,Healthcare,4,Strategic
+127,Cobalt 127,Enterprise,Manufacturing,1,Active
+128,Northstar 128,Public Sector,Retail,2,At Risk
+129,Vertex 129,SMB,Retail,2,At Risk
+130,Vertex 130,Public Sector,Retail,3,Active
+131,Cobalt 131,Public Sector,Healthcare,1,Active
+132,Cobalt 132,SMB,Technology,2,Strategic
+133,Apex 133,Enterprise,Finance,1,Active
+134,Apex 134,Mid-Market,Manufacturing,2,Strategic
+135,Apex 135,Enterprise,Manufacturing,5,Strategic
+136,Apex 136,SMB,Healthcare,3,Strategic
+137,Summit 137,Enterprise,Technology,2,Strategic
+138,BluePeak 138,Enterprise,Education,3,At Risk
+139,Apex 139,Public Sector,Technology,6,Strategic
+140,Cobalt 140,Mid-Market,Retail,1,Strategic
+141,Northstar 141,Enterprise,Retail,5,Strategic
+142,Summit 142,Public Sector,Technology,6,Strategic
+143,Vertex 143,SMB,Manufacturing,1,Active
+144,Cobalt 144,Public Sector,Manufacturing,3,Strategic
+145,Apex 145,Mid-Market,Education,4,Strategic
+146,BluePeak 146,SMB,Manufacturing,5,At Risk
+147,BluePeak 147,Public Sector,Retail,6,At Risk
+148,Summit 148,Mid-Market,Manufacturing,1,Active
+149,BluePeak 149,Public Sector,Education,5,At Risk
+150,Vertex 150,SMB,Retail,1,Active
+151,Summit 151,Public Sector,Retail,2,At Risk
+152,Cobalt 152,SMB,Retail,5,Strategic
+153,Apex 153,Enterprise,Technology,5,Active
+154,BluePeak 154,Public Sector,Finance,4,Strategic
+155,Cobalt 155,Public Sector,Manufacturing,6,At Risk
+156,Summit 156,Enterprise,Finance,1,At Risk
+157,Cobalt 157,Mid-Market,Healthcare,3,At Risk
+158,BluePeak 158,Public Sector,Retail,5,At Risk
+159,Cobalt 159,SMB,Manufacturing,3,At Risk
+160,Apex 160,SMB,Technology,3,Strategic
+161,Northstar 161,Mid-Market,Education,3,Strategic
+162,Apex 162,Mid-Market,Education,2,At Risk
+163,BluePeak 163,SMB,Healthcare,6,Strategic
+164,Apex 164,SMB,Retail,1,Active
+165,Summit 165,SMB,Technology,2,Strategic
+166,Northstar 166,Mid-Market,Technology,3,Strategic
+167,Apex 167,SMB,Education,6,At Risk
+168,BluePeak 168,Enterprise,Retail,1,At Risk
+169,Summit 169,Public Sector,Finance,4,Active
+170,Northstar 170,SMB,Technology,4,At Risk
+171,BluePeak 171,Public Sector,Education,1,Strategic
+172,Apex 172,Enterprise,Healthcare,2,At Risk
+173,Northstar 173,Enterprise,Healthcare,2,At Risk
+174,Vertex 174,Mid-Market,Manufacturing,5,At Risk
+175,Vertex 175,SMB,Retail,5,Strategic
+176,Cobalt 176,Enterprise,Technology,5,Active
+177,Cobalt 177,Mid-Market,Technology,3,Active
+178,BluePeak 178,Mid-Market,Technology,2,Active
+179,Vertex 179,Enterprise,Education,4,Strategic
+180,Northstar 180,Public Sector,Finance,3,At Risk
